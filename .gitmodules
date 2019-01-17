@@ -4,7 +4,7 @@
 	branch = master
 [submodule "arduino-cmsis-dap"]
 	path = arduino-cmsis-dap
-	url = https://github.com/myelin/arduino-cmsis-dap.git
+	url = https://github.com/lanserge/arduino-cmsis-dap.git
 	branch = master
 [submodule "cmake_arduino_local_install"]
 	path = cmake_arduino_local_install

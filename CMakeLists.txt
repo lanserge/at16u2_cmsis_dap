@@ -51,12 +51,13 @@ add_definitions(
     -DARDUINO=10808
     -DARDUINO_ARCH_AVR
 
+    -DDAP_SERIAL_LOG=0
     -DDAP_JTAG=0
     -DDAP_SWD=1
     -DAT16U2_DUE
 
-    -DBOARD_ID="{1, 1, 1, 1}"
-    -DBOARD_SECRET="{1, 1, 1, 1, 1, 1, 1, 1, 1}"
+    -DBOARD_ID="\\x1\\x1\\x1\\x1"
+    -DBOARD_SECRET="\\x1\\x1\\x1\\x1\\x1\\x1\\x1\\x1"
 
 )
 
