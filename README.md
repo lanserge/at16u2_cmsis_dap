@@ -46,6 +46,26 @@ To start GDB server
 ```
 openocd -s /usr/share/openocd/scripts -s /usr/local/share/openocd/scripts -f interface/cmsis-dap.cfg -f board/atmel_sam3x_ek.cfg
 ```
+It should output nicely:
+```
+Open On-Chip Debugger 0.10.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "swd". To override use 'transport select <transport>'.
+adapter speed: 500 kHz
+adapter_nsrst_delay: 100
+cortex_m reset_config sysresetreq
+srst_only separate srst_gates_jtag srst_open_drain connect_deassert_srst
+Info : CMSIS-DAP: SWD  Supported
+Info : CMSIS-DAP: Interface Initialised (SWD)
+Info : CMSIS-DAP: FW Version = 1.0
+Info : SWCLK/TCK = 0 SWDIO/TMS = 1 TDI = 1 TDO = 1 nTRST = 0 nRESET = 1
+Info : CMSIS-DAP: Interface ready
+Info : clock speed 500 kHz
+Info : SWD DPIDR 0x2ba01477
+Info : sam3.cpu: hardware has 6 breakpoints, 4 watchpoints
+```
 
 To flash the code to the ARM with single command and without GDB run next as single line without comments and with your compiled filename substituted 
 ```
