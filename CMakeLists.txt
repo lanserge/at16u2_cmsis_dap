@@ -14,6 +14,8 @@ if(NOT EXISTS ${ARDUINO_SDK_PATH}/revisions.txt)
     install_arduino_localy(${ArduinoToolchainVersion} ${CMAKE_SOURCE_DIR} ${DOWNLOADS})
 endif()
 
+project(at16u2_cmsis_dap)
+
 SET(MCU atmega16u2)
 
 SET(CMAKE_SYSTEM_NAME Generic)
@@ -69,8 +71,6 @@ function(get_folder_sources var folder)
     endforeach()
     set(${var} ${SRC_FILES} PARENT_SCOPE)
 endfunction()
-
-project(at16u2_cmsis_dap)
 
 get_folder_sources(ARDUINO_CMSIS_DAP_SRC_FILES ${CMAKE_SOURCE_DIR}/arduino-cmsis-dap *.c *.cpp)
 add_library(arduino_cmsis_dap STATIC ${ARDUINO_CMSIS_DAP_SRC_FILES})
