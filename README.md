@@ -1,5 +1,6 @@
 # at16u2_cmsis_dap
-CMSIS-DAP debugger firmware for atmega16u2 mcu on Arduino DUE board
+CMSIS-DAP debugger firmware for atmega16u2 mcu on Arduino DUE board.
+
 The project is modification for existing arduino-cmsis-dap project to target atmega16u2 mcu.
 
 You could flash the atmega16u2 mcu with already compiled at16u2_cmsis_dap.elf.hex file if you want.
