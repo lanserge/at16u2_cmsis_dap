@@ -31,7 +31,10 @@ How to work with the debugger:
 On the Arduino DUE board the SWD debug port has four pins and
 two of them (GND and RESET) already connected to the atmega16u2 mcu.
 
-![So you need just connect two middle pins (SCK and MOSI) from atmega16u2 ICSP1 connector to the two middle pins of the SWD debug port (parallel pin to pin without changing the order).](SWD_connect.jpg)
+So you need just connect two middle pins (SCK and MOSI) from atmega16u2 ICSP1 connector
+![SWD connect](SWD_connect.jpg)
+
+to the two middle pins of the SWD debug port (parallel pin to pin without changing the order).
 
 After that connect your Arduino DUE USB programming port to your PC and you will have CMSIS DAP debugger connected and ready.
 In the internet there is a lot of info about how to setup it for Eclipse or other IDEs.
