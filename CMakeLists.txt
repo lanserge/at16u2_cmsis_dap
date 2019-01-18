@@ -86,18 +86,17 @@ add_executable(at16u2_cmsis_dap sketch.cpp)
 set_target_properties(at16u2_cmsis_dap PROPERTIES SUFFIX ".elf")
 target_link_libraries(at16u2_cmsis_dap arduino_cmsis_dap HID avr_core)
 
-set(ELF_FILE $<TARGET_FILE:at16u2_cmsis_dap>)
+set(ELF_FILE_PATH "$<TARGET_FILE:at16u2_cmsis_dap>")
+set(HEX_FILE_PATH ${CMAKE_SOURCE_DIR}/$<TARGET_FILE_NAME:at16u2_cmsis_dap>.hex)
 
 add_custom_target(hex 
-    COMMAND ${AVR_TOOLS_PATH}/bin/avr-size -A ${ELF_FILE}
-    COMMAND ${AVR_TOOLS_PATH}/bin/avr-objcopy -O ihex -R .eeprom ${ELF_FILE} ${ELF_FILE}.hex
-    BYPRODUCTS ${ELF_FILE}.hex
+    COMMAND ${AVR_TOOLS_PATH}/bin/avr-size -A ${ELF_FILE_PATH}
+    COMMAND ${AVR_TOOLS_PATH}/bin/avr-objcopy -O ihex -R .eeprom ${ELF_FILE_PATH} ${HEX_FILE_PATH}
+    BYPRODUCTS ${ELF_FILE_PATH}
     DEPENDS at16u2_cmsis_dap
 )
 
 add_custom_target(flash_avrisp2
-    COMMAND ${AVR_TOOLS_PATH}/bin/avrdude -c avrisp2 -p m16u2 -v -e -U flash:w:${ELF_FILE}.hex:i -C ${AVR_TOOLS_PATH}/etc/avrdude.conf
-    DEPENDS ${ELF_FILE}.hex
+    COMMAND ${AVR_TOOLS_PATH}/bin/avrdude -c avrisp2 -p m16u2 -v -e -U flash:w:${HEX_FILE_PATH}:i -C ${AVR_TOOLS_PATH}/etc/avrdude.conf
+    DEPENDS ${HEX_FILE_PATH}
 )
-
-add_dependencies(flash_avrisp2 hex)
